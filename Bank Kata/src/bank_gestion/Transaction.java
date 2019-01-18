@@ -1,6 +1,5 @@
 package bank_gestion;
 import java.util.Date;
-import java.util.ArrayList;
 public class Transaction {
 	private int type_transaction;
 	private float value;

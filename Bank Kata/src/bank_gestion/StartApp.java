@@ -1,8 +1,6 @@
 package bank_gestion;
 import java.util.Date;
-import java.time.format.DateTimeFormatter;
 import java.text.SimpleDateFormat; 
-import java.text.DateFormat;
 import java.text.ParseException;
 public class StartApp {
 	public static void main(String[] args) {
@@ -20,7 +18,6 @@ public class StartApp {
 		
 	}
 	public static Date convertDate(String dateString) { 
-		DateFormat formatter;
 		Date date=new Date();
 		try {
 			date = new SimpleDateFormat("dd/MM/yyyy").parse(dateString);
