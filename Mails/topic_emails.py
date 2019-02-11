@@ -58,7 +58,8 @@ p_stemmer = PorterStemmer()
 
 
 # compile sample documents into a list
-doc_set = email_df["body"][:1000]
+doc_set = email_df["body"][:100]
+doc_set.to_csv("test.csv")
 doc_set_dic=[]
 for i in doc_set:
 	a=TextBlob(i).noun_phrases
@@ -119,5 +120,12 @@ corpus = [dictionary.doc2bow(text) for text in texts]
 
 # generate LDA model
 ldamodel = gensim.models.ldamodel.LdaModel(corpus, num_topics=3, id2word = dictionary, passes=20)
+
+#from gensim.test.utils import datapath
+#temp_file = datapath("data/model/emails_topic")
+ldamodel.save("data/model/emails_topic.model")
+dictionary.save("data/model/emails_topic.dict")
+
+
 
 print(ldamodel.print_topics(num_topics=3, num_words=5))
